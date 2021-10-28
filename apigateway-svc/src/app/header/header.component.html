@@ -1,0 +1,18 @@
+<!-- Menú de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <button (click)='navigate(crudUrl)'  class="btn btn-outline-warning my-2 my-sm-0" type="submit">CRUD</button>
+        </div>
+        <div class="navbar-nav">
+          <button (click)='navigate(mapaUrl)'  class="btn btn-outline-info my-2 my-sm-0 ml-2" type="submit">Mapa</button>
+        </div>
+        <div class="navbar-nav">
+          <button (click)='navigate(loginUrl)'  class="btn btn-outline-danger my-2 my-sm-0 ml-2" type="submit">Login</button>
+        </div>
+    </div>
+    </nav>

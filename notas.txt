@@ -1,0 +1,71 @@
+
+===================INICIO DE LA PRACTICA =========================
+
+//Namespace
+        
+kubectl create namespace ns-eafitbike
+kubectl config set-context ns-eafitbike
+
+
+//DOcker and push
+
+docker login
+docker build -t nsroagibm/gateway-svc:v100 .
+docker push nsroagibm/gateway-svc:v100
+
+
+#kubectl create secret docker-registry regcred  --docker-server=https://registry-1.docker.io/v2/ --docker-username=santiago2802 --docker-password=Docker2021 --docker-email=santirian@hotmail.com
+//Crear pod
+
+kubectl create deployment gateway-svc --image=nsroagibm/gateway-svc
+
+//Crear servicio
+
+kubectl expose deployment gateway-svc --type=NodePort --port=8080 --target-port=80
+
+kubectl autoscale deployment <name> --min=2 --max=4
+
+//Consulta servicio y puerto [30000-34000]
+k get svc santiapp
+
+
+k logs nombrePod
+
+#Validar
+k describe pod santiapp-bdf954bf8-hr7lc
+santiapp-bdf954bf8-hr7lc
+
+//Verificar
+cluster-ip:Node-port
+
+============FIN====
+
+
+
+#Comandos varios
+
+
+
+kubectl create namespace ns-nginx
+kubectl config set-context ns-nginx
+
+
+#kubectl create deployment nginx --image=nginx 
+
+#kubectl expose deployment nginx --type=NodePort --port=8080 --target-port=80
+
+target es aquel dentro del container "maquina"
+
+#kubectl create deployment alejo --image=nginx -o yaml > nginx.yaml
+#kubectl apply -f nginx.yaml
+
+
+//Borrar
+
+ #k delete svc nginx
+
+//Consulta
+
+kubectl get all -n ns-nginx
+
+kubectl get svc nginx

@@ -1,0 +1,76 @@
+<!-- <ul class="alert alert-danger" *ngIf="errores?.length>0">
+    <li *ngFor="let err of errores">
+        {{err}}
+    </li>
+</ul> -->
+
+<div class="card bg_dark text-dark">
+    <div class="card-header">
+        {{titulo}}
+    </div>
+
+    <div class="card-body">
+        
+        <form #clienteForm="ngForm"> 
+          
+            <div class="form-group row">
+                <label for="usuario" class="col-form-label col-sm-2">Nombre:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.usuario" name="usuario" #usuario="ngModel">
+                    
+                    <div class="alert alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+                            
+                        <div *ngIf="usuario.errors.required">
+                                El usuario es requerida
+                        </div>
+                        <div *ngIf="usuario.errors.minlength">
+                            El usuario debe tener mínimo 3 caracteres
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="locX" class="col-form-label col-sm-2">Coordenada en x:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.locX" name="locX" #locX="ngModel">
+                    <div class="alert alert-danger" *ngIf="locX.invalid && (locX.dirty || locX.touched)">
+                        
+                        <div *ngIf="locX.errors.required">
+                                La localización en X es requerida
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="locY" class="col-form-label col-sm-2">Coordenada en y:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.locY" name="locY" #locY="ngModel">
+                    <div class="alert alert-danger" *ngIf="locY.invalid && (locY.dirty || locY.touched)">
+                        
+                        <div *ngIf="locY.errors.required">
+                            La localización en Y es requerida
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn-primary" role="button" (click)='cancelar()' 
+                            ><!--El disabled permite deshabilitar los botones en caso de que no cmpla los requisitos-->
+                        Cancelar
+                    </button>
+                   
+                </div>
+            </div>
+                
+                       
+
+        </form>
+        
+       
+    </div>
+</div>

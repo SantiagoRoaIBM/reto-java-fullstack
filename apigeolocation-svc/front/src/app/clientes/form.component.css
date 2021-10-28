@@ -1,0 +1,11 @@
+#mapa{
+    
+    height: 90vh;
+    width: 100h;
+}
+
+.map-container{
+    margin:30px;
+}
+
+/* @import "~leaflet/dist/leaflet.css"; */

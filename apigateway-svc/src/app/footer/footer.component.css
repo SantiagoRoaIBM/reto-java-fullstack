@@ -1,0 +1,6 @@
+.footer{
+  position: absolute;
+  bottom: 0px;/* Para dejar el pie de página abajo de la hoja */
+  height: 60px;
+  width: 100%;
+}

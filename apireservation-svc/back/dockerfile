@@ -1,0 +1,5 @@
+FROM adoptopenjdk/openjdk11:alpine-jre
+ARG JAR_FILE=target/spring-boot-backend-crud-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} app.jar
+EXPOSE 8083
+ENTRYPOINT ["java","-jar","app.jar"]

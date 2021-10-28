@@ -1,0 +1,85 @@
+<!-- <ul class="alert alert-danger" *ngIf="errores?.length>0">
+    <li *ngFor="let err of errores">
+        {{err}}
+    </li>
+</ul> -->
+
+<div class="card bg_dark text-dark">
+    <div class="card-header">
+        {{titulo}}
+    </div>
+
+    <div class="card-body">
+        
+        <form #clienteForm="ngForm"> 
+          
+            <div class="form-group row">
+                <label for="marca" class="col-form-label col-sm-2">Marca</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.marca" name="marca" #marca="ngModel">
+                    
+                    <div class="alert alert-danger" *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+                            
+                        <div *ngIf="marca.errors.required">
+                                La marca es requerida
+                        </div>
+                        <div *ngIf="marca.errors.minlength">
+                            La marca debe tener mínimo 3 caracteres
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="tipoBicicleta" class="col-form-label col-sm-2">Tipo de bicicleta</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.tipoBicicleta" name="tipoBicicleta" #tipoBicicleta="ngModel">
+                    <div class="alert alert-danger" *ngIf="tipoBicicleta.invalid && (tipoBicicleta.dirty || tipoBicicleta.touched)">
+                        
+                        <div *ngIf="tipoBicicleta.errors.required">
+                                El tipo de bicicleta es requerido
+                        </div>
+                        <div *ngIf="tipoBicicleta.errors.minlength">
+                            El tipo de bicicleta debe tener mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="color" class="col-form-label col-sm-2">color</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.color" name="color" #color="ngModel">
+                    <div class="alert alert-danger" *ngIf="color.invalid && (color.dirty || color.touched)">
+                        
+                        <div *ngIf="color.errors.required">
+                                El color es requerido
+                        </div>
+                        <div *ngIf="color.errors.color">
+                            El color no es válido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                   <button class="btn-primary" role="button" (click)='create()' 
+                            *ngIf="!cliente.id " [disabled]="!clienteForm.form.valid"><!--El disabled permite deshabilitar los botones en caso de que no cmpla los requisitos-->
+                         Crear
+                    </button>
+                    <button class="btn-primary" role="button" (click)='update()' 
+                            *ngIf="cliente.id " [disabled]="!clienteForm.form.valid"><!--El disabled permite deshabilitar los botones en caso de que no cmpla los requisitos-->
+                         Editar
+                    </button>
+                  
+                </div>
+            </div>
+                
+                       
+
+        </form>
+        
+       
+    </div>
+</div>

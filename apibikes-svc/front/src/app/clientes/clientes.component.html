@@ -1,0 +1,50 @@
+<div class="card border-primary mb-3">
+    <div class="card-header"></div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de bicicletas</h5>
+
+      <!--routerLink es una directiva que permite crear links ahacia rutas internas -->
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">
+           Crear Bicicleta
+          </button>
+      </div>
+
+      <!-- <div *ngIf="clientes?.length==0" class="alert alert-info"> 
+        No hay registros en la base de datos
+      </div> -->
+
+      <!-- <table class="table table-boedered table-striped" *ngIf="clientes?.length>0"> -->
+        <table class="table table-boedered table-striped">
+          <thead>
+            <tr>
+                <th> Id</th>
+                <th> Marca</th>
+                <th> Tipo de Bicicleta</th>
+                <th>Color</th>
+                <th>Estado</th>
+                
+              </tr>
+          </thead>     
+          <tbody>
+            <tr *ngFor="let item of clientes">
+                <td>{{item.id}} </td>
+                <td>{{item.marca}}</td>
+                <td>{{item.tipoBicicleta}} </td>
+                <td>{{item.color}} </td>
+                <td>{{item.estado}} </td>
+                <td> 
+                  <button class="btn btn-primary"   name="editar" type="button" [routerLink]="['/clientes/form', item.id]">
+                    Editar
+                   </button>
+                </td>
+                <td> 
+                  <button class="btn btn-danger"   name="eliminar" (click)='delete(item)' type="button">
+                    Eliminar
+                   </button>
+                </td>
+              </tr>
+          </tbody>     
+      </table>
+    </div>
+  </div>

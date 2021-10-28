@@ -1,0 +1,40 @@
+<div class="card border-primary mb-3">
+    <div class="card-header"></div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de bicicletas</h5>
+
+            
+        <table class="table table-boedered table-striped">
+          <thead>
+            <tr>
+                <th> Id</th>
+                <th> Marca</th>
+                <th> Tipo de Bicicleta</th>
+                <th>Color</th>
+                <th>Estado</th>
+                
+              </tr>
+          </thead>     
+          <tbody>
+            <tr *ngFor="let item of clientes">
+                <td>{{item.id}} </td>
+                <td>{{item.marca}}</td>
+                <td>{{item.tipoBicicleta}} </td>
+                <td>{{item.color}} </td>
+                <td>{{item.estado}} </td>
+                <td> 
+                  <button class="btn btn-primary"   name="editar" type="button" [routerLink]="['/clientes/form', item]"                   
+                    *ngIf="item.estado=='disponible' "><!--El disabled permite deshabilitar los botones en caso de que no cmpla los requisitos-->
+                    Reservar
+                   </button>
+                   <button class="btn btn-primary"   name="editar" type="button" [routerLink]="['/clientes/form', item]"                   
+                    *ngIf="item.estado=='reservada' " ><!--El disabled permite deshabilitar los botones en caso de que no cmpla los requisitos-->
+                    Cancelar
+                   </button>
+                </td>
+                
+              </tr>
+          </tbody>     
+      </table>
+    </div>
+  </div>

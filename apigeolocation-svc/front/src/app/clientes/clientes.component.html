@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3">
+  <div class="card-header"></div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de bicicletas</h5>
+
+          
+      <table class="table table-boedered table-striped">
+        <thead>
+          <tr>
+              <th> Id</th>
+                            
+            </tr>
+        </thead>     
+        <tbody>
+          <tr *ngFor="let item of clientes">
+              <td>{{item.id}} </td>
+              <td>{{item.estado}} </td>
+              <td> 
+                
+                 <button class="btn btn-primary"   name="editar" type="button" [routerLink]="['/clientes/form', item]"                   
+                  *ngIf="item.estado=='reservada' " >
+                 Ver en el mapa
+                 </button>
+
+                 <!-- <button onclick="location.href=`https://www.google.com/maps/@${item.locX},${item.locY}`"  class="btn btn-primary" type="submit">Ver en el mapa</button> -->
+                 <!-- <button onclick="location.href=`https://www.google.com/maps/place/Centro+Comercial+Santaf%C3%A9+Bogot%C3%A1/@4.7626029,-74.0484574,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f8593cfb53fab:0x7e1314c3e84e41a2!8m2!3d4.7626029!4d-74.0462687`"  class="btn btn-primary" type="submit">Ver en el mapa</button> -->
+                </td>
+              
+            </tr>
+        </tbody>     
+    </table>
+  </div>
+</div>
